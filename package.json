@@ -1,0 +1,16 @@
+{
+  "name": "hotel-billing",
+  "version": "1.0.0",
+  "description": "A full-stack web app for hotel front-desk operations with a **server database**.",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test_smoke.js && node test_patch29.js && node test_dom.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.63.0"
+  }
+}

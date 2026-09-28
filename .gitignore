@@ -1,0 +1,6 @@
+# live hotel data — NEVER commit
+db.json
+backups/
+# system / deps
+node_modules/
+.DS_Store
