@@ -90,7 +90,7 @@ const check = (n,c) => { console.log((c?'PASS':'FAIL')+' — '+n); if(!c) failur
   const yearlyPayHtml=els['#app'].innerHTML;
   check('choosing yearly switches to the yearly QR and pre-fills ₹6,999 in its UPI link', yearlyPayHtml.includes('subscription-upi-yearly.png') && yearlyPayHtml.includes('am=6999.00&amp;cu=INR'));
   S().UI.subForm.planId='monthly'; sb.render(false);
-  check('subscription view explains manual UTR verification', lockedHtml.includes('does not automatically notify') && lockedHtml.includes('owner verifies and approves'));
+  check('subscription view clearly says the owner manually verifies the UTR', lockedHtml.includes('Payment is not verified automatically') && lockedHtml.includes('The owner checks your reference and manually approves access.'));
   check('expired screen keeps both local and server backup export buttons', lockedHtml.includes('data-act="subscription-export"') && lockedHtml.includes('data-act="subscription-server-export"'));
   S().UI.subscription = { ...activeSub, active:true, daysRemaining:4, reminderDays:4 };
   check('four-day expiry reminder is available in-app', sb.subscriptionReminderHTML().includes('4 days'));

@@ -29,6 +29,7 @@ async function run(){
   child.stderr.on('data',d=>logs+=d);
   const base='http://127.0.0.1:'+port;
   const check=(name,condition)=>{ assert.ok(condition,name); console.log('PASS — '+name); };
+  const html=fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
   const req=async (url,opts={})=>{
     const r=await fetch(base+url,opts);
     const text=await r.text();
@@ -44,6 +45,9 @@ async function run(){
     }
     assert.ok(live,'server did not start: '+logs);
 
+    check('subscription plan labels use a scoped wrapping class',html.includes('class=\"sub-plan-name\"') && html.includes('.sub-plan .sub-plan-name') && !/class=\"sp-name\">[^<]*\+ esc\(p\.name\)/.test(html));
+    check('customer subscription form has only the UTR field',html.includes('data-sub-field=\"transactionRef\"') && !/data-sub-field=\"(?:businessName|ownerName|mobile|email)\"/.test(html));
+
     let x=await req('/api/subscription');
     check('new installation starts locked',x.r.status===200 && x.body.active===false && x.body.state==='inactive');
     const prices=Object.fromEntries(x.body.plans.map(p=>[p.id,p.price]));
@@ -54,7 +58,9 @@ async function run(){
     x=await req('/api/state');
     check('hotel state is blocked before manual payment approval',x.r.status===403 && x.body.error==='subscription_required');
 
-    const payload={planId:'yearly',businessName:'Test Hotel',ownerName:'Owner Test',mobile:'9876543210',email:'owner@example.test',transactionRef:'UTRTEST123456'};
+    const payload={planId:'yearly',transactionRef:'UTRTEST123456'};
+    x=await req('/api/subscription/request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({planId:'monthly'})});
+    check('server rejects a subscription request without a UTR',x.r.status===400 && x.body.error==='invalid_reference');
     x=await req('/api/subscription/request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     check('customer can submit a UTR without unlocking access',x.r.status===201 && x.body.request.status==='pending' && x.body.subscription.active===false);
     const requestId=x.body.request.id;
@@ -68,7 +74,7 @@ async function run(){
     x=await req('/api/admin/subscription',{headers:{'X-Subscription-Admin-Key':'wrong-key'}});
     check('admin review rejects an incorrect key',x.r.status===401);
     x=await req('/api/admin/subscription',{headers:{'X-Subscription-Admin-Key':key}});
-    check('authorized owner can review the submitted UTR',x.r.status===200 && x.body.requests[0].transactionRef===payload.transactionRef);
+    check('authorized owner can review the submitted UTR without customer contact details',x.r.status===200 && x.body.requests[0].transactionRef===payload.transactionRef && x.body.requests[0].businessName==='' && x.body.requests[0].ownerName==='' && x.body.requests[0].mobile==='');
 
     x=await req('/api/admin/subscription',{method:'POST',headers:{'Content-Type':'application/json','X-Subscription-Admin-Key':key},body:JSON.stringify({requestId,action:'approve'})});
     check('owner approval activates the selected plan',x.r.status===200 && x.body.subscription.active && x.body.subscription.plan.id==='yearly');

@@ -208,14 +208,16 @@ const server = http.createServer(async (req,res) => {
     try {
       const body=await readJson(req);
       const plan=PLANS[String(body.planId||'')];
+      // A subscription belongs to this hotel installation, so customer identity/contact
+      // details are optional. Keep these fields only for compatibility with older clients.
       const businessName=String(body.businessName||'').trim().slice(0,100);
       const ownerName=String(body.ownerName||'').trim().slice(0,100);
       const mobile=normalizeMobile(body.mobile);
       const email=String(body.email||'').trim().slice(0,160);
       const transactionRef=String(body.transactionRef||'').trim().replace(/\s+/g,'').slice(0,64);
       if(!plan) return sendJson(res,400,{error:'invalid_plan',message:'Choose a valid subscription plan.'});
-      if(!businessName || !ownerName || !/^[6-9]\d{9}$/.test(mobile) || !/^[A-Za-z0-9/-]{6,64}$/.test(transactionRef))
-        return sendJson(res,400,{error:'invalid_details',message:'Enter business name, owner name, valid Indian mobile, and UPI transaction reference.'});
+      if(!/^[A-Za-z0-9/-]{6,64}$/.test(transactionRef))
+        return sendJson(res,400,{error:'invalid_reference',message:'Enter the UPI transaction reference / UTR from your payment receipt (6–64 letters or digits).'});
       const s=readSubscription();
       if(s.requests.some(r => r.status==='pending')) return sendJson(res,409,{error:'pending_exists',message:'A payment request is already awaiting review.'});
       if(s.requests.some(r => String(r.transactionRef).toLowerCase()===transactionRef.toLowerCase())) return sendJson(res,409,{error:'duplicate_reference',message:'This transaction reference has already been submitted.'});
