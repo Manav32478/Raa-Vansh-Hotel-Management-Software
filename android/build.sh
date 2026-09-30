@@ -27,7 +27,7 @@ test -f "$WORK/classes.dex"
 echo "[3/6] staging assets"
 cp "$ROOT/index.html" "$ROOT/sw.js" "$ROOT/manifest.webmanifest" "$WORK/astage/"
 mkdir -p "$WORK/astage/assets"
-for f in logo.png qr.png icon-192.png icon-512.png apple-touch-icon.png favicon-64.png; do
+for f in logo.png qr.png subscription-upi-qr.jpeg subscription-upi-monthly.png subscription-upi-quarterly.png subscription-upi-halfYearly.png subscription-upi-yearly.png icon-192.png icon-512.png apple-touch-icon.png favicon-64.png; do
   cp "$ROOT/assets/$f" "$WORK/astage/assets/"
 done
 cp "$ROOT/vendor/jspdf.umd.min.js" "$WORK/astage/vendor/"

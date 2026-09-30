@@ -1,6 +1,6 @@
 /* Raa Vansh Hotel — service worker: offline app shell (data itself lives in localStorage + server) */
-const VERSION = 'rv1-2026-09-24';
-const SHELL = ['/', '/index.html', '/manifest.webmanifest', '/assets/icon-192.png', '/assets/icon-512.png'];
+const VERSION = 'rv1-2026-09-30-subscription-amount-qr';
+const SHELL = ['/', '/index.html', '/manifest.webmanifest', '/assets/icon-192.png', '/assets/icon-512.png', '/assets/subscription-upi-monthly.png', '/assets/subscription-upi-quarterly.png', '/assets/subscription-upi-halfYearly.png', '/assets/subscription-upi-yearly.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
 });

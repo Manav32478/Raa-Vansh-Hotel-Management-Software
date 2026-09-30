@@ -1,5 +1,8 @@
 # live hotel data — NEVER commit
 db.json
+db.json.tmp
+subscription.json
+subscription.json.tmp
 backups/
 # system / deps
 node_modules/

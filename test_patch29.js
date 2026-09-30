@@ -14,6 +14,9 @@ const server = { state:null };
 function makeFetch(){
   return async (url, opts) => {
     const u = String(url);
+    if(u === '/api/subscription'){
+      return { ok:true, status:200, json:async()=>({ready:true,active:true,state:'active',plan:{id:'yearly',name:'Yearly',months:12,price:6999},startsAt:new Date().toISOString(),expiresAt:'2099-12-31T00:00:00.000Z',daysRemaining:999,reminderDays:null,request:null,pendingRequestId:null,plans:[]}) };
+    }
     if(u === '/api/state'){
       if(opts && opts.method === 'PUT'){ server.state = JSON.parse(opts.body); return { ok:true, status:200 }; }
       if(server.state) return { ok:true, status:200, json: async () => server.state };

@@ -17,6 +17,12 @@ const sandbox = {
     body: { appendChild(){}, },
   },
   localStorage: { _d:{}, getItem(k){return k in this._d ? this._d[k] : null}, setItem(k,v){this._d[k]=String(v)}, removeItem(k){delete this._d[k]} },
+  fetch: async (url,opts) => {
+    if(String(url).endsWith('/api/subscription')) return {ok:true,status:200,json:async()=>({ready:true,active:true,state:'active',plan:{id:'yearly',name:'Yearly',months:12,price:6999},startsAt:new Date().toISOString(),expiresAt:'2099-12-31T00:00:00.000Z',daysRemaining:999,reminderDays:null,request:null,pendingRequestId:null,plans:[]})};
+    if(String(url).endsWith('/api/state') && opts && opts.method==='PUT') return {ok:true,status:200};
+    if(String(url).endsWith('/api/state')) return {ok:false,status:404,json:async()=>null};
+    return {ok:false,status:404,json:async()=>null};
+  },
   navigator: { clipboard:null, canShare:null },
   File: class File { constructor(parts,name){ this.parts=parts; this.name=name; } },
   URL: { createObjectURL:()=>'blob:x', revokeObjectURL(){} },

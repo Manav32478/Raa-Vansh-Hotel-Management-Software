@@ -1159,6 +1159,52 @@ button, a, .tab, .brow, .room-chip, .chip-btn, .fchip, .step-btn, .nbj, .idz-btn
 .confirm-extra { margin:10px 0 2px; padding:10px 12px; border-radius:10px; background:#f7f9fc;
   border:1px solid #e3e9f1; font-size:12.5px; line-height:1.6; color:#4a5b70; }
 
+
+/* ================= Subscription & licensing ================= */
+.sub-shell{max-width:1120px;margin:0 auto;padding:clamp(18px,4vw,42px);color:var(--ink);}
+.sub-brand{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.sub-brand .brand-badge{width:44px;height:44px;}
+.sub-brand-name{font:700 21px Georgia,serif;color:var(--maroon-deep);}
+.sub-brand-note{font-size:11px;color:var(--muted);letter-spacing:.6px;}
+.sub-hero{margin:0 0 22px;padding:26px clamp(18px,4vw,38px);border-radius:22px;background:linear-gradient(135deg,#102C52,#173D68 68%,#8A1A1A);color:#fff;box-shadow:0 16px 36px rgba(15,36,62,.18);}
+.sub-hero h1{font:700 clamp(25px,4vw,38px) Georgia,serif;margin:0 0 9px;}
+.sub-hero p{margin:0;color:rgba(255,255,255,.85);max-width:760px;line-height:1.6;}
+.sub-state{display:inline-flex;align-items:center;gap:7px;margin-bottom:11px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.15);font-size:11px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;}
+.sub-state.expired{background:rgba(255,220,220,.18);}
+.sub-reminder{margin:0 0 16px;padding:13px 16px;border:1.5px solid #E5B44A;border-radius:13px;background:#FFF7DF;color:#624500;line-height:1.5;font-weight:700;}
+.sub-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:clamp(16px,3vw,24px);box-shadow:0 5px 18px rgba(20,31,48,.055);margin-bottom:16px;}
+.sub-card h2,.sub-card h3{margin:0 0 12px;color:var(--maroon-deep);}
+.sub-plans{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:14px 0 20px;}
+.sub-plan{display:block;text-align:left;min-width:0;border:1.5px solid var(--line);border-radius:14px;background:#fff;padding:15px 13px;cursor:pointer;transition:.15s;}
+.sub-plan:hover{border-color:var(--gold-2);transform:translateY(-2px);}
+.sub-plan.on{border-color:var(--maroon);box-shadow:0 0 0 3px rgba(139,26,26,.1);background:#FFF9F3;}
+.sub-plan .sp-name{font-weight:850;color:var(--maroon-deep);}
+.sub-plan .sp-price{display:block;margin:9px 0 3px;font-size:24px;font-weight:900;color:#183A62;}
+.sub-plan .sp-length{font-size:11px;color:var(--muted);}
+.sub-layout{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(0,1.2fr);gap:18px;align-items:start;}
+.sub-qr-box{text-align:center;background:#F6F8FC;border:1px solid var(--line);border-radius:14px;padding:12px;}
+.sub-qr-box img{display:block;width:100%;max-width:330px;height:auto;max-height:560px;object-fit:contain;margin:auto;border-radius:10px;}
+.sub-upi{margin-top:9px;font-size:12px;font-weight:800;color:var(--maroon-deep);word-break:break-all;}
+.sub-amount{margin:12px 0;padding:12px;border-radius:12px;background:#F7F0E0;color:#543B13;font-size:14px;font-weight:800;text-align:center;}
+.sub-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sub-form label{display:block;font-size:10px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);}
+.sub-form label.wide{grid-column:1/-1;}
+.sub-form input{display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:14px;color:var(--ink);}
+.sub-hint{font-size:11px;color:var(--muted);line-height:1.55;margin:10px 0 13px;}
+.sub-pending{padding:12px 14px;border:1px solid #E7C66A;border-radius:12px;background:#FFF8DF;color:#604B12;font-size:12px;line-height:1.55;margin:12px 0;}
+.sub-active{padding:13px 15px;border:1px solid #AED8BE;border-radius:12px;background:#EFFAF3;color:#20543A;margin-bottom:14px;line-height:1.5;}
+.sub-admin{border-top:1px solid var(--line);margin-top:20px;padding-top:18px;}
+.sub-admin-row{display:flex;gap:9px;align-items:end;flex-wrap:wrap;}
+.sub-admin-row label{flex:1 1 250px;display:block;font-size:10px;color:var(--muted);font-weight:800;letter-spacing:.6px;text-transform:uppercase;}
+.sub-admin-row input{display:block;width:100%;margin-top:5px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;}
+.sub-request-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px;}
+.sub-request-row:last-child{border-bottom:0;}
+.sub-empty{padding:12px;color:var(--muted);font-size:12px;}
+.sub-small{font-size:11px;color:var(--muted);line-height:1.55;}
+.sub-footer{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin:16px 0 0;color:var(--muted);font-size:11px;}
+.sub-error{margin-top:10px;color:#A32222;font-size:12px;font-weight:700;}
+@media(max-width:820px){.sub-plans{grid-template-columns:repeat(2,minmax(0,1fr));}.sub-layout{grid-template-columns:1fr 1fr;}}
+@media(max-width:620px){.sub-shell{padding:14px;}.sub-layout{grid-template-columns:1fr;}.sub-form{grid-template-columns:1fr;}.sub-form label.wide{grid-column:auto;}.sub-request-row{grid-template-columns:1fr 1fr;}.sub-request-row .sub-req-detail{grid-column:1/-1;}.sub-plan{padding:12px 10px;}}
 </style>
 </head>
 <body>
@@ -1356,6 +1402,7 @@ async function pushToServer(){
   try{
     const r = await fetch(API_BASE + '/api/state', { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(DB) });
     setSync(r.ok ? 'synced' : 'offline');
+    if(r.status === 403) await refreshSubscription(false);
     return r.ok;
   }catch(e){ setSync('offline'); return false; }
 }
@@ -1369,7 +1416,9 @@ async function pullFromServer(){
   if(typeof fetch === 'undefined') { setSync('offline'); return; }
   try{
     const r = await fetch(API_BASE + '/api/state', { cache:'no-store' });
-    if(!r.ok){ await pushToServer(); return; }   // no server DB yet → seed it
+    if(r.status === 403){ await refreshSubscription(false); setSync('offline'); return; }
+    if(r.status === 404){ await pushToServer(); return; }   // no server DB yet → seed it
+    if(!r.ok){ setSync('offline'); return; }
     const s = await r.json();
     if(!s){ setSync('offline'); return; }
     const localN = DB.bookings.length, servN = s.bookings.length;
@@ -3331,32 +3380,143 @@ let UI = {
   checkoutId:null, draft:null, ocrRaw:'', busy:false,
   pay:{amt:'', mode:'UPI'}, confirm:null,
   rfHit:null, rfPhone:'', rfFilledFor:'', ym:'',
-  openFnb:null, openCustom:null, importPreview:null, qw:null
+  openFnb:null, openCustom:null, importPreview:null, qw:null,
+  subscription:{ready:false,active:false,state:'checking'},
+  subForm:{planId:'monthly',businessName:'',ownerName:'',mobile:'',email:'',transactionRef:''},
+  subAdminKey:'', subAdminData:null, subAdminError:''
 };
+
+const SUBSCRIPTION_PLANS = [
+  {id:'monthly',name:'Monthly',months:1,price:700},
+  {id:'quarterly',name:'Quarterly',months:3,price:2100},
+  {id:'halfYearly',name:'Half yearly',months:6,price:4199},
+  {id:'yearly',name:'Yearly',months:12,price:6999}
+];
+const SUBSCRIPTION_UPI = 'manavsarvaiya188@okhdfcbank';
+const SUBSCRIPTION_AID = 'uGICAgMCyhbWzHQ';
+const SUBSCRIPTION_QR_PATHS = {monthly:'/assets/subscription-upi-monthly.png',quarterly:'/assets/subscription-upi-quarterly.png',halfYearly:'/assets/subscription-upi-halfYearly.png',yearly:'/assets/subscription-upi-yearly.png'};
+function subPlan(id){ return SUBSCRIPTION_PLANS.find(p => p.id===id) || SUBSCRIPTION_PLANS[0]; }
+function subDate(iso){ return iso ? fmtDate(String(iso).slice(0,10)) : '—'; }
+function subscriptionReminderHTML(){
+  const s=UI.subscription||{};
+  if(!s.active || !(s.daysRemaining>0) || s.daysRemaining>4) return '';
+  return '<div class="sub-reminder">⏳ Your ' + esc(s.plan ? s.plan.name : 'subscription') + ' plan expires in ' + s.daysRemaining + ' day' + (s.daysRemaining===1?'':'s') + ' (' + subDate(s.expiresAt) + '). Renew now to avoid interruption. <button class="btn sm" data-act="tab" data-tab="subscription">Renew plan</button></div>';
+}
+function subscriptionAdminHTML(){
+  const data=UI.subAdminData, err=UI.subAdminError;
+  let list='';
+  if(data){
+    const reqs=data.requests||[];
+    list=reqs.length ? reqs.map(r => '<div class="sub-request-row"><div class="sub-req-detail"><b>' + esc(r.businessName) + '</b> · ' + esc(r.ownerName) + ' · ' + esc(r.mobile) + '<br><span class="sub-small">' + esc(r.planName) + ' · ₹' + Number(r.amount).toLocaleString('en-IN') + ' · UTR ' + esc(r.transactionRef) + ' · submitted ' + esc(fmtDT(r.submittedAt)) + (r.email?' · '+esc(r.email):'') + '</span></div><span class="chip ' + (r.status==='approved'?'c-green':r.status==='rejected'?'c-red':'c-amber') + '">' + esc(r.status.toUpperCase()) + '</span>' + (r.status==='pending' ? '<span><button class="btn sm success" data-act="subscription-admin-approve" data-id="' + esc(r.id) + '">Approve</button> <button class="btn sm danger" data-act="subscription-admin-reject" data-id="' + esc(r.id) + '">Reject</button></span>' : '<span class="sub-small">' + esc(r.message||'') + '</span>') + '</div>').join('') : '<div class="sub-empty">No payment requests have been submitted on this installation.</div>';
+  }
+  return '<div class="sub-admin"><h3>Owner: review UPI payments</h3><p class="sub-small">Enter the server-only admin key configured as <code>SUBSCRIPTION_ADMIN_KEY</code>. It is sent for this session only and is not saved to the browser.</p><div class="sub-admin-row"><label>Admin key<input id="sub-admin-key" type="password" autocomplete="off" value="' + esc(UI.subAdminKey) + '" placeholder="Set in the server environment"></label><button class="btn sm" data-act="subscription-admin-load">Load payment requests</button></div>' + (err?'<div class="sub-error">'+esc(err)+'</div>':'') + (data?'<div style="margin-top:12px"><div class="sub-active"><b>License:</b> '+esc((data.subscription||{}).state||'inactive')+(data.subscription&&data.subscription.plan?' · '+esc(data.subscription.plan.name):'')+(data.subscription&&data.subscription.expiresAt?' · expires '+subDate(data.subscription.expiresAt):'')+'</div>'+list+'</div>':'') + '</div>';
+}
+function viewSubscription(){
+  const s=UI.subscription||{}, f=UI.subForm||{}, plan=subPlan(f.planId);
+  const locked=!s.active;
+  const qrPath=(s.qrPaths&&s.qrPaths[plan.id])||SUBSCRIPTION_QR_PATHS[plan.id]||SUBSCRIPTION_QR_PATHS.monthly;
+  const qrSrc=esc((API_BASE||'')+qrPath);
+  const upiHref='upi://pay?pa='+encodeURIComponent(SUBSCRIPTION_UPI)+'&pn='+encodeURIComponent('Manav Sarvaiya')+'&am='+Number(plan.price).toFixed(2)+'&cu=INR&tn='+encodeURIComponent('Raa Vansh Hotel '+plan.name+' subscription')+'&aid='+encodeURIComponent(SUBSCRIPTION_AID);
+  const status = s.state==='checking' || !s.ready ? 'Checking subscription' : s.state==='unavailable' ? 'Server unavailable' : s.active ? 'Subscription active' : s.state==='expired' ? 'Subscription expired' : s.state==='pending' ? 'Awaiting payment review' : 'Subscription required';
+  const heading = s.active ? 'Manage your subscription' : s.state==='expired' ? 'Your subscription has expired' : s.state==='unavailable' ? 'Cannot verify subscription' : 'Choose a subscription plan';
+  const current = s.active ? '<div class="sub-active"><b>' + esc(s.plan?s.plan.name:'Active plan') + ' subscription</b> · valid through ' + subDate(s.expiresAt) + ' · ' + s.daysRemaining + ' day' + (s.daysRemaining===1?'':'s') + ' remaining.</div>' : '';
+  const latest = s.request;
+  const pending = s.pendingRequestId ? '<div class="sub-pending"><b>Payment request submitted.</b> Your chosen plan stays locked until payment is verified by the owner. Latest request: ' + esc(latest ? latest.planName : '') + ' · ₹' + Number(latest&&latest.amount||0).toLocaleString('en-IN') + ' · status ' + esc(latest ? latest.status : 'pending') + (latest&&latest.message?' · '+esc(latest.message):'') + '. Refresh this page after approval.</div>' : (latest&&latest.status==='rejected' ? '<div class="sub-pending"><b>Last payment request was not approved.</b> '+esc(latest.message||'Please contact the owner or submit a new UTR after checking payment.')+'</div>' : '');
+  const error = s.error || UI.subRequestError || '';
+  const payForm = s.state==='checking' || s.state==='unavailable' ? '' : '<div class="sub-card"><h2>' + (s.active?'Renew / extend your plan':'1. Select a plan') + '</h2><div class="sub-plans">' + SUBSCRIPTION_PLANS.map(p => '<button type="button" class="sub-plan ' + (plan.id===p.id?'on':'') + '" data-act="subscription-plan" data-plan="' + p.id + '"><span class="sp-name">' + esc(p.name) + '</span><span class="sp-price">₹' + Number(p.price).toLocaleString('en-IN') + '</span><span class="sp-length">' + p.months + ' month' + (p.months===1?'':'s') + '</span></button>').join('') + '</div><div class="sub-layout"><div class="sub-qr-box"><img src="' + qrSrc + '" alt="UPI QR with the selected plan amount prefilled"><div class="sub-upi">UPI ID: ' + esc(SUBSCRIPTION_UPI) + '</div><div class="sub-amount">Pay exactly ₹' + Number(plan.price).toLocaleString('en-IN') + ' for the ' + esc(plan.name) + ' plan</div><a class="btn sm ghost" href="' + esc(upiHref) + '">Open prefilled UPI payment</a></div><div><h3>2. Pay and submit for verification</h3><p class="sub-hint">Scan this plan-specific QR or open the UPI link: the exact amount is prefilled in your payment app. Check the payee and amount, then enter your UPI PIN only in that UPI app (never on this website). Payment does not automatically notify the software, so after a successful payment enter the UTR/reference below; access starts only after the owner verifies and approves it.</p><div class="sub-form"><label class="wide">Hotel / business name *<input data-sub-field="businessName" value="' + esc(f.businessName||'') + '" maxlength="100" placeholder="Your hotel or business"></label><label>Owner name *<input data-sub-field="ownerName" value="' + esc(f.ownerName||'') + '" maxlength="100" placeholder="Name on the account"></label><label>Mobile number *<input data-sub-field="mobile" value="' + esc(f.mobile||'') + '" inputmode="numeric" maxlength="14" placeholder="10-digit Indian mobile"></label><label class="wide">Email (optional)<input type="email" data-sub-field="email" value="' + esc(f.email||'') + '" maxlength="160" placeholder="owner@example.com"></label><label class="wide">UPI transaction reference / UTR *<input data-sub-field="transactionRef" value="' + esc(f.transactionRef||'') + '" maxlength="64" autocomplete="off" placeholder="Enter the reference shown by your UPI app"></label></div><div class="sub-hint">Do not submit the request until your UPI app shows the payment as successful. The owner checks the reference manually. A submitted request alone does not unlock the software.</div><button class="btn success" data-act="subscription-request">' + (s.active?'Submit renewal for approval':'I have paid — submit for approval') + '</button>' + (error?'<div class="sub-error">'+esc(error)+'</div>':'') + '</div></div></div>';
+  return '<div class="sub-shell"><div class="sub-brand"><div class="brand-badge">RV</div><div><div class="sub-brand-name">Raa Vansh Hotel Software</div><div class="sub-brand-note">Subscription activation · one license per hotel installation</div></div></div><div class="sub-hero"><div class="sub-state ' + (!s.active&&s.state==='expired'?'expired':'') + '">● ' + esc(status) + '</div><h1>' + esc(heading) + '</h1><p>' + (s.active?'Your subscription is managed per hotel installation. Renew before the expiry date to keep all software features available.':'Choose a plan, pay through the UPI QR, then submit the transaction reference. A verified payment is required before hotel data and app features are unlocked.') + '</p></div>' + (s.active&&s.reminderDays?'<div class="sub-reminder">⏳ Reminder: your plan expires in '+s.daysRemaining+' day'+(s.daysRemaining===1?'':'s')+' on '+subDate(s.expiresAt)+'. Submit a renewal now to avoid interruption.</div>':'') + current + pending + (locked&&s.state==='expired'?'<div class="sub-pending"><b>Access is locked because this subscription has expired.</b> Renew to restore access. Existing hotel data remains stored on the server; backup export is available below.</div>':'') + (locked&&s.state==='unavailable'?'<div class="sub-pending"><b>The subscription server could not be reached.</b> The app locks when it cannot verify a license. Check the connection and retry. If needed, export your locally cached backup.</div>':'') + (locked&&s.state==='checking'?'<div class="sub-card">Checking the server license before opening hotel data…</div>':'') + (s.state==='unavailable'?'<div class="sub-card"><button class="btn" data-act="subscription-refresh">↻ Retry verification</button></div>':'') + payForm + (locked?'<div class="sub-card"><h3>Backup / data portability</h3><p class="sub-small">A lock does not delete hotel data. You may download the data already cached on this device. Server backups remain in Settings when the subscription is active.</p><button class="btn ghost" data-act="subscription-export">⬇ Export this device’s cached backup</button> <button class="btn ghost" data-act="subscription-server-export">⬇ Download server backup</button></div>':'') + '<div class="sub-card">' + subscriptionAdminHTML() + '</div><div class="sub-footer"><span>UPI payments are verified manually; never share your UPI PIN or OTP.</span><span>Questions? Contact the software owner.</span></div></div>';
+}
+async function refreshSubscription(syncState=false){
+  if(typeof fetch==='undefined'){
+    UI.subscription={ready:true,active:false,state:'unavailable',error:'A server connection is required to verify your subscription.'}; render(false); return false;
+  }
+  try{
+    const r=await fetch(API_BASE+'/api/subscription',{cache:'no-store'});
+    const info=await r.json();
+    if(!r.ok || !info) throw new Error(info&&info.message||'Could not verify subscription.');
+    UI.subscription=Object.assign({ready:true,error:''},info);
+    if(info.active && syncState) await pullFromServer();
+    render(false);
+    return !!info.active;
+  }catch(e){
+    UI.subscription={ready:true,active:false,state:'unavailable',error:e.message||'Subscription server is not reachable.'};
+    render(false); return false;
+  }
+}
+async function submitSubscriptionRequest(){
+  const f=UI.subForm||{}, p=subPlan(f.planId);
+  if(!String(f.businessName||'').trim() || !String(f.ownerName||'').trim() || !/^[6-9]\d{9}$/.test(String(f.mobile||'').replace(/\D/g,'')) || !/^[A-Za-z0-9/-]{6,64}$/.test(String(f.transactionRef||'').trim().replace(/\s+/g,''))){
+    UI.subRequestError='Enter the hotel/business name, owner name, valid 10-digit Indian mobile, and UPI transaction reference.'; render(false); return;
+  }
+  UI.subRequestError='';
+  try{
+    const r=await fetch(API_BASE+'/api/subscription/request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...f,planId:p.id})});
+    const j=await r.json();
+    if(!r.ok) throw new Error(j.message||'Could not submit payment request.');
+    toast('Payment reference submitted. Access begins after owner approval.','success',6000);
+    await refreshSubscription(false);
+  }catch(e){UI.subRequestError=e.message||'Request could not reach the subscription server.';render(false);}
+}
+async function loadSubscriptionAdmin(){
+  UI.subAdminKey=String($('#sub-admin-key')&&$('#sub-admin-key').value||UI.subAdminKey||'').trim();
+  if(!UI.subAdminKey){UI.subAdminError='Enter the owner admin key configured on the server.';render(false);return;}
+  try{
+    const r=await fetch(API_BASE+'/api/admin/subscription',{headers:{'X-Subscription-Admin-Key':UI.subAdminKey},cache:'no-store'});
+    const j=await r.json();
+    if(!r.ok) throw new Error(j.message||'Admin access was rejected.');
+    UI.subAdminData=j;UI.subAdminError='';render(false);
+  }catch(e){UI.subAdminData=null;UI.subAdminError=e.message||'Could not load payment requests.';render(false);}
+}
+async function decideSubscriptionRequest(id,action){
+  if(!UI.subAdminKey){toast('Load the admin panel with the owner key first.','warn');return;}
+  let message='';
+  if(action==='reject') message=prompt('Reason for rejecting this UPI payment (optional):','Unable to verify the UPI reference.');
+  try{
+    const r=await fetch(API_BASE+'/api/admin/subscription',{method:'POST',headers:{'Content-Type':'application/json','X-Subscription-Admin-Key':UI.subAdminKey},body:JSON.stringify({requestId:id,action,message:message||''})});
+    const j=await r.json();if(!r.ok)throw new Error(j.message||'Could not update request.');
+    UI.subAdminData=null;await refreshSubscription(false);await loadSubscriptionAdmin();
+    toast(action==='approve'?'Payment approved; subscription is active.':'Payment request rejected.','success',5000);
+  }catch(e){UI.subAdminError=e.message||'Could not update request.';render(false);}
+}
+function exportSubscriptionBackup(){
+  try{exportData();}catch(e){toast('No local backup is available on this device yet.','warn',5000);}
+}
+async function exportSubscriptionServerBackup(){
+  try{
+    const r=await fetch(API_BASE+'/api/subscription/backup',{cache:'no-store'});
+    if(!r.ok) throw new Error('No server backup is available right now.');
+    const data=await r.json();
+    const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+    deliverBlob(blob,'raavansh-hotel-server-backup-'+todayStr()+'.json','Hotel server backup','<div class="viewer-card"><h2>Server backup downloaded</h2><p>The JSON file contains the hotel data available on the server.</p></div>');
+  }catch(e){toast(e.message||'Could not download the server backup.','warn',5000);}
+}
 
 function render(animate = true){
   const app = $('#app');
-  let html = header();
-  if(UI.tab === 'dashboard') html += viewDashboard();
-  else if(UI.tab === 'today') html += viewToday();
-  else if(UI.tab === 'bookings') html += (UI.bookingId ? viewBooking(getB(UI.bookingId)) : viewBookings());
-  else if(UI.tab === 'records') html += (UI.guestKey ? viewGuestProfile() : viewRecords());
-  else if(UI.tab === 'new') html += viewNew();
-  else if(UI.tab === 'reports') html += viewReports();
-  else html += viewSettings();
+  const sub = UI.subscription || {};
+  const licensed = !!(sub.ready && sub.active);
+  let html = '';
+  if(licensed){
+    html = header() + (UI.tab === 'subscription' ? '' : subscriptionReminderHTML());
+    if(UI.tab === 'subscription') html += viewSubscription();
+    else if(UI.tab === 'dashboard') html += viewDashboard();
+    else if(UI.tab === 'today') html += viewToday();
+    else if(UI.tab === 'bookings') html += (UI.bookingId ? viewBooking(getB(UI.bookingId)) : viewBookings());
+    else if(UI.tab === 'records') html += (UI.guestKey ? viewGuestProfile() : viewRecords());
+    else if(UI.tab === 'new') html += viewNew();
+    else if(UI.tab === 'reports') html += viewReports();
+    else html += viewSettings();
+  } else {
+    html = viewSubscription();
+  }
   app.innerHTML = html;
-  if(animate) enterView(app);
-  try{ animateCounts(app); }catch(e){}
-  const mr = $('#modal-root');
-  mr.innerHTML = '';
-  if(UI.checkoutId && getB(UI.checkoutId)) renderCheckout(mr);
-  const cr = $('#confirm-root');
-  cr.innerHTML = '';
-  if(UI.confirm) renderConfirm(cr);
-  const ir = $('#import-root');
-  if(ir){ ir.innerHTML = ''; if(UI.importPreview) renderImportPreview(ir); }
-  if(UI.tab === 'new'){ try{ updateFormProgress(); }catch(e){} }
-  if(UI.tab === 'settings'){ try{ loadBackupList(); }catch(e){} }
+  if(animate && licensed) enterView(app);
+  if(licensed){ try{ animateCounts(app); }catch(e){} }
+  const mr = $('#modal-root'); if(mr){ mr.innerHTML = ''; if(licensed && UI.checkoutId && getB(UI.checkoutId)) renderCheckout(mr); }
+  const cr = $('#confirm-root'); if(cr){ cr.innerHTML = ''; if(licensed && UI.confirm) renderConfirm(cr); }
+  const ir = $('#import-root'); if(ir){ ir.innerHTML = ''; if(licensed && UI.importPreview) renderImportPreview(ir); }
+  if(licensed && UI.tab === 'new'){ try{ updateFormProgress(); }catch(e){} }
+  if(licensed && UI.tab === 'settings'){ try{ loadBackupList(); }catch(e){} }
 }
 
 /* entrance choreography: staggered rise of sections, cards & rows + count-up stats */
@@ -3396,7 +3556,7 @@ function animateStats(v){
 }
 
 function header(){
-  const tabs = [['dashboard','Dashboard'],['today','Today ⭐'],['bookings','Bookings'],['new','+ New Booking'],['records','Records'],['reports','Reports'],['settings','Settings']];
+  const tabs = [['dashboard','Dashboard'],['today','Today ⭐'],['bookings','Bookings'],['new','+ New Booking'],['records','Records'],['reports','Reports'],['subscription','Subscription'],['settings','Settings']];
   const badge = DB.assets.logo
     ? '<img class="brand-logo" src="' + DB.assets.logo + '" alt="Raa Vansh Hotel">'
     : '<div class="brand-badge">RV</div>';
@@ -4474,7 +4634,17 @@ document.addEventListener('click', e => {
   if(!t) return;
   const act = t.dataset.act, id = t.dataset.id;
   switch(act){
+    case 'subscription-plan':
+      UI.subForm = UI.subForm || {}; UI.subForm.planId = t.dataset.plan || 'monthly'; UI.subRequestError = ''; render(false); break;
+    case 'subscription-request': submitSubscriptionRequest(); break;
+    case 'subscription-refresh': refreshSubscription(false); break;
+    case 'subscription-admin-load': loadSubscriptionAdmin(); break;
+    case 'subscription-admin-approve': decideSubscriptionRequest(id,'approve'); break;
+    case 'subscription-admin-reject': decideSubscriptionRequest(id,'reject'); break;
+    case 'subscription-export': exportSubscriptionBackup(); break;
+    case 'subscription-server-export': exportSubscriptionServerBackup(); break;
     case 'tab':
+      if(!UI.subscription || !UI.subscription.active){ render(false); break; }
       UI.tab = t.dataset.tab;
       UI.bookingId = null; UI.guestKey = null; UI.q = ''; UI.openFnb = null; UI.openCustom = null;
       // Data isolation: a scanned ID document belongs to the guest it was taken for.
@@ -4557,10 +4727,10 @@ document.addEventListener('click', e => {
       fetch(mu + '/api/health', { cache:'no-store' }).then(r => r.json()).then(j => {
         if (j && j.ok) {
           setApiBase(mu);
-          pullFromServer().then(() => {
+          refreshSubscription(true).then(() => {
             render(true);
-            setStatus('<span class="good">✓ Connected to ' + esc(mu) + ' — this device now shares that server’s database.</span>');
-            toast('Connected — phone & laptop now share one database', 'success', 4000);
+            setStatus('<span class="good">✓ Connected to ' + esc(mu) + ' — subscription status checked; active licenses can sync this database.</span>');
+            toast('Connected — subscription status checked', 'success', 4000);
           });
         } else { setStatus('<span class="bad">The server answered but is not the Raa Vansh app — check the address.</span>'); }
       }).catch(() => { setStatus('<span class="bad">Could not reach that address — check the URL and internet connection, then try again.</span>'); });
@@ -4695,6 +4865,8 @@ document.addEventListener('click', e => {
 document.addEventListener('input', e => {
   const el = e.target;
   const d = UI.draft;
+  if(el.dataset.subField !== undefined){ UI.subForm = UI.subForm || {}; UI.subForm[el.dataset.subField] = el.value; UI.subRequestError = ''; }
+  if(el.id === 'sub-admin-key') UI.subAdminKey = el.value;
   if(el.dataset.draft !== undefined && d){
     d[el.dataset.draft] = el.value;
     if(el.dataset.draft === 'checkIn' || el.dataset.draft === 'checkOut') updateNightsChip();
@@ -4803,7 +4975,8 @@ function updateNightsChip(){
     setTimeout(done, reduced ? 200 : 1950);
   }
   setSync(typeof fetch === 'undefined' ? 'offline' : 'init');
-  pullFromServer();
+  render(true);
+  refreshSubscription(true);
   /* PWA: offline app-shell + install prompt */
   try{
     if(location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1'){
@@ -4812,11 +4985,13 @@ function updateNightsChip(){
     window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); UI._installEvt = e; try{ render(false); }catch(_){} });
   }catch(_){}
   let __lastDay = todayStr();
-  if(typeof setInterval === 'function') setInterval(() => {
+  if(typeof document.addEventListener === 'function') document.addEventListener('visibilitychange', () => { if(!document.hidden) refreshSubscription(true); });
+  if(typeof setInterval === 'function') setInterval(async () => {
     if(document.hidden) return;
     const d = todayStr();
-    if(d !== __lastDay){ __lastDay = d; toast('New day ' + d + ' — dashboard refreshed','info',6000); render(false); }
-    pullFromServer();
+    if(d !== __lastDay){ __lastDay = d; if(UI.subscription&&UI.subscription.active) toast('New day ' + d + ' — dashboard refreshed','info',6000); }
+    await refreshSubscription(false);
+    if(UI.subscription&&UI.subscription.active) pullFromServer();
   }, 45000);
   if(realSplash && !reduced){
     // reveal the dashboard with its staggered entrance as the splash lifts

@@ -17,6 +17,9 @@ function makeFetch(){
   return async (url, opts) => {
     const u = String(url);
     server.fetches.push(u);
+    if(u === '/api/subscription'){
+      return { ok:true, status:200, json:async()=>({ready:true,active:true,state:'active',plan:{id:'yearly',name:'Yearly',months:12,price:6999},startsAt:new Date().toISOString(),expiresAt:'2099-12-31T00:00:00.000Z',daysRemaining:999,reminderDays:null,request:null,pendingRequestId:null,plans:[{id:'monthly',name:'Monthly',months:1,price:700},{id:'quarterly',name:'Quarterly',months:3,price:2100},{id:'halfYearly',name:'Half yearly',months:6,price:4199},{id:'yearly',name:'Yearly',months:12,price:6999}],qrPaths:{monthly:'/assets/subscription-upi-monthly.png',quarterly:'/assets/subscription-upi-quarterly.png',halfYearly:'/assets/subscription-upi-halfYearly.png',yearly:'/assets/subscription-upi-yearly.png'},qrPath:'/assets/subscription-upi-monthly.png',upiId:'manavsarvaiya188@okhdfcbank'}) };
+    }
     if(u === '/api/state'){
       if(opts && opts.method === 'PUT'){
         server.state = JSON.parse(opts.body);
@@ -74,6 +77,24 @@ const check = (n,c) => { console.log((c?'PASS':'FAIL')+' — '+n); if(!c) failur
   const S = () => sb.__expose;
   const els = sb._els;
   await sleep(300);
+
+  // Subscription screen and access gate.
+  const activeSub = { ...S().UI.subscription };
+  check('subscription status loads as active in the app', activeSub.ready && activeSub.active);
+  S().UI.subscription = { ...activeSub, ready:true, active:false, state:'expired', daysRemaining:0 };
+  S().UI.tab = 'dashboard'; sb.render(false);
+  const lockedHtml = els['#app'].innerHTML;
+  check('expired subscription hard-locks normal hotel screens', lockedHtml.includes('Your subscription has expired') && !lockedHtml.includes('data-tab="dashboard"'));
+  check('subscription view shows all four prices and amount-specific monthly QR', lockedHtml.includes('6,999') && lockedHtml.includes('4,199') && lockedHtml.includes('2,100') && lockedHtml.includes('700') && lockedHtml.includes('subscription-upi-monthly.png'));
+  S().UI.subForm.planId='yearly'; sb.render(false);
+  const yearlyPayHtml=els['#app'].innerHTML;
+  check('choosing yearly switches to the yearly QR and pre-fills ₹6,999 in its UPI link', yearlyPayHtml.includes('subscription-upi-yearly.png') && yearlyPayHtml.includes('am=6999.00&amp;cu=INR'));
+  S().UI.subForm.planId='monthly'; sb.render(false);
+  check('subscription view explains manual UTR verification', lockedHtml.includes('does not automatically notify') && lockedHtml.includes('owner verifies and approves'));
+  check('expired screen keeps both local and server backup export buttons', lockedHtml.includes('data-act="subscription-export"') && lockedHtml.includes('data-act="subscription-server-export"'));
+  S().UI.subscription = { ...activeSub, active:true, daysRemaining:4, reminderDays:4 };
+  check('four-day expiry reminder is available in-app', sb.subscriptionReminderHTML().includes('4 days'));
+  S().UI.subscription = activeSub; S().UI.tab = 'dashboard'; sb.render(false);
 
   // 0. server seeded on first run
   check('server DB seeded (19 rooms)', !!server.state && server.state.rooms.length === 19);

@@ -6,3 +6,7 @@ services:
     buildCommand: echo "no build needed - pure Node, zero dependencies"
     startCommand: node server.js
     healthCheckPath: /
+
+    envVars:
+      - key: SUBSCRIPTION_ADMIN_KEY
+        sync: false
